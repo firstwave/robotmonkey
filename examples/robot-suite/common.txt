@@ -1,0 +1,11 @@
+*** Settings ***
+Library  android
+Library  app
+
+*** Keywords ***
+the ${screenName} screen is displayed   go to screen    ${screenName}
+the ${screenName} screen should be displayed    verify screen   ${screenName}
+the ${tabName} tab is selected  select tab  ${tabName}
+
+there should be ${element} displayed  verify element  ${element}  True
+there should not be ${element} displayed  verify element  ${element}  False

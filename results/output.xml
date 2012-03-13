@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 2.6.3 (Jython 2.5.1 on java1.6.0_29)" generated="20120312 16:20:27.787">
+<suite source="/Users/obartley/Projects/RobotMonkey/examples/ndtest/data" name="Data">
+<doc/>
+<metadata>
+</metadata>
+<suite source="/Users/obartley/Projects/RobotMonkey/examples/ndtest/data/feature.txt" name="Feature">
+<doc/>
+<metadata>
+</metadata>
+<test timeout="" name="Scenario 1">
+<doc>Password login: positive case</doc>
+<kw type="kw" timeout="" name="Given the login screen is displayed">
+<doc/>
+<arguments>
+</arguments>
+<msg timestamp="20120312 16:20:29.007" level="TRACE">Arguments: [  ]</msg>
+<kw type="kw" timeout="" name="feature.The App Is Started">
+<doc/>
+<arguments>
+</arguments>
+<msg timestamp="20120312 16:20:29.013" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20120312 16:20:30.147" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:29.010" endtime="20120312 16:20:30.145"/>
+</kw>
+<kw type="kw" timeout="" name="feature.I Click">
+<doc/>
+<arguments>
+<arg>Agree</arg>
+</arguments>
+<msg timestamp="20120312 16:20:30.152" level="TRACE">Arguments: [ u'Agree' ]</msg>
+<msg timestamp="20120312 16:20:31.719" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:30.150" endtime="20120312 16:20:31.718"/>
+</kw>
+<kw type="kw" timeout="" name="feature.I Click">
+<doc/>
+<arguments>
+<arg>Login</arg>
+</arguments>
+<msg timestamp="20120312 16:20:31.723" level="TRACE">Arguments: [ u'Login' ]</msg>
+<msg timestamp="20120312 16:20:32.102" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:31.721" endtime="20120312 16:20:32.101"/>
+</kw>
+<msg timestamp="20120312 16:20:32.105" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:29.001" endtime="20120312 16:20:32.104"/>
+</kw>
+<kw type="kw" timeout="" name="feature.And the password tab is selected">
+<doc/>
+<arguments>
+</arguments>
+<msg timestamp="20120312 16:20:32.113" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20120312 16:20:33.245" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:32.112" endtime="20120312 16:20:33.244"/>
+</kw>
+<kw type="kw" timeout="" name="feature.When I enter the email address">
+<doc/>
+<arguments>
+<arg>obartley@ebay.com</arg>
+</arguments>
+<msg timestamp="20120312 16:20:33.250" level="TRACE">Arguments: [ u'obartley@ebay.com' ]</msg>
+<msg timestamp="20120312 16:20:36.125" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:33.248" endtime="20120312 16:20:36.125"/>
+</kw>
+<kw type="kw" timeout="" name="feature.And I enter the password">
+<doc/>
+<arguments>
+<arg>Sup3rS3cr3t</arg>
+</arguments>
+<msg timestamp="20120312 16:20:36.131" level="TRACE">Arguments: [ u'Sup3rS3cr3t' ]</msg>
+<msg timestamp="20120312 16:20:38.018" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:36.129" endtime="20120312 16:20:38.017"/>
+</kw>
+<kw type="kw" timeout="" name="feature.And I click">
+<doc/>
+<arguments>
+<arg>the Log In button</arg>
+</arguments>
+<msg timestamp="20120312 16:20:38.023" level="TRACE">Arguments: [ u'the Log In button' ]</msg>
+<msg timestamp="20120312 16:20:38.130" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:38.021" endtime="20120312 16:20:38.129"/>
+</kw>
+<kw type="kw" timeout="" name="feature.Then the account screen should be displayed">
+<doc/>
+<arguments>
+</arguments>
+<msg timestamp="20120312 16:20:38.136" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20120312 16:20:45.812" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120312 16:20:38.134" endtime="20120312 16:20:45.811"/>
+</kw>
+<tags>
+<tag>final</tag>
+</tags>
+<status status="PASS" starttime="20120312 16:20:28.993" endtime="20120312 16:20:45.813" critical="yes"/>
+</test>
+<status status="PASS" starttime="20120312 16:20:28.112" endtime="20120312 16:20:45.816"/>
+</suite>
+<status status="PASS" starttime="20120312 16:20:27.790" endtime="20120312 16:20:45.820"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+<stat info="critical" pass="1" doc="" combined="" fail="0" links="">final</stat>
+</tag>
+<suite>
+<stat pass="1" idx="s1" fail="0" name="Data">Data</stat>
+<stat pass="1" idx="s1-s1" fail="0" name="Feature">Data.Feature</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
