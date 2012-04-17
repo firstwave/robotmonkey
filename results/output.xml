@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 2.6.3 (Jython 2.5.1 on java1.6.0_29)" generated="20120312 16:20:27.787">
+<robot generator="Robot 2.6.3 (Jython 2.5.1 on java1.6.0_29)" generated="20120313 11:53:56.258">
 <suite source="/Users/obartley/Projects/RobotMonkey/examples/ndtest/data" name="Data">
 <doc/>
 <metadata>
@@ -14,87 +14,87 @@
 <doc/>
 <arguments>
 </arguments>
-<msg timestamp="20120312 16:20:29.007" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20120313 11:53:57.402" level="TRACE">Arguments: [  ]</msg>
 <kw type="kw" timeout="" name="feature.The App Is Started">
 <doc/>
 <arguments>
 </arguments>
-<msg timestamp="20120312 16:20:29.013" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20120312 16:20:30.147" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:29.010" endtime="20120312 16:20:30.145"/>
+<msg timestamp="20120313 11:53:57.407" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20120313 11:53:58.643" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:53:57.404" endtime="20120313 11:53:58.641"/>
 </kw>
 <kw type="kw" timeout="" name="feature.I Click">
 <doc/>
 <arguments>
 <arg>Agree</arg>
 </arguments>
-<msg timestamp="20120312 16:20:30.152" level="TRACE">Arguments: [ u'Agree' ]</msg>
-<msg timestamp="20120312 16:20:31.719" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:30.150" endtime="20120312 16:20:31.718"/>
+<msg timestamp="20120313 11:53:58.651" level="TRACE">Arguments: [ u'Agree' ]</msg>
+<msg timestamp="20120313 11:54:00.213" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:53:58.646" endtime="20120313 11:54:00.212"/>
 </kw>
 <kw type="kw" timeout="" name="feature.I Click">
 <doc/>
 <arguments>
 <arg>Login</arg>
 </arguments>
-<msg timestamp="20120312 16:20:31.723" level="TRACE">Arguments: [ u'Login' ]</msg>
-<msg timestamp="20120312 16:20:32.102" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:31.721" endtime="20120312 16:20:32.101"/>
+<msg timestamp="20120313 11:54:00.217" level="TRACE">Arguments: [ u'Login' ]</msg>
+<msg timestamp="20120313 11:54:00.554" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:54:00.215" endtime="20120313 11:54:00.553"/>
 </kw>
-<msg timestamp="20120312 16:20:32.105" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:29.001" endtime="20120312 16:20:32.104"/>
+<msg timestamp="20120313 11:54:00.556" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:53:57.397" endtime="20120313 11:54:00.556"/>
 </kw>
 <kw type="kw" timeout="" name="feature.And the password tab is selected">
 <doc/>
 <arguments>
 </arguments>
-<msg timestamp="20120312 16:20:32.113" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20120312 16:20:33.245" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:32.112" endtime="20120312 16:20:33.244"/>
+<msg timestamp="20120313 11:54:00.562" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20120313 11:54:01.473" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:54:00.560" endtime="20120313 11:54:01.472"/>
 </kw>
 <kw type="kw" timeout="" name="feature.When I enter the email address">
 <doc/>
 <arguments>
 <arg>obartley@ebay.com</arg>
 </arguments>
-<msg timestamp="20120312 16:20:33.250" level="TRACE">Arguments: [ u'obartley@ebay.com' ]</msg>
-<msg timestamp="20120312 16:20:36.125" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:33.248" endtime="20120312 16:20:36.125"/>
+<msg timestamp="20120313 11:54:01.478" level="TRACE">Arguments: [ u'obartley@ebay.com' ]</msg>
+<msg timestamp="20120313 11:54:04.305" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:54:01.476" endtime="20120313 11:54:04.304"/>
 </kw>
 <kw type="kw" timeout="" name="feature.And I enter the password">
 <doc/>
 <arguments>
 <arg>Sup3rS3cr3t</arg>
 </arguments>
-<msg timestamp="20120312 16:20:36.131" level="TRACE">Arguments: [ u'Sup3rS3cr3t' ]</msg>
-<msg timestamp="20120312 16:20:38.018" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:36.129" endtime="20120312 16:20:38.017"/>
+<msg timestamp="20120313 11:54:04.310" level="TRACE">Arguments: [ u'Sup3rS3cr3t' ]</msg>
+<msg timestamp="20120313 11:54:06.097" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:54:04.308" endtime="20120313 11:54:06.096"/>
 </kw>
 <kw type="kw" timeout="" name="feature.And I click">
 <doc/>
 <arguments>
 <arg>the Log In button</arg>
 </arguments>
-<msg timestamp="20120312 16:20:38.023" level="TRACE">Arguments: [ u'the Log In button' ]</msg>
-<msg timestamp="20120312 16:20:38.130" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:38.021" endtime="20120312 16:20:38.129"/>
+<msg timestamp="20120313 11:54:06.102" level="TRACE">Arguments: [ u'the Log In button' ]</msg>
+<msg timestamp="20120313 11:54:06.213" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:54:06.100" endtime="20120313 11:54:06.212"/>
 </kw>
 <kw type="kw" timeout="" name="feature.Then the account screen should be displayed">
 <doc/>
 <arguments>
 </arguments>
-<msg timestamp="20120312 16:20:38.136" level="TRACE">Arguments: [  ]</msg>
-<msg timestamp="20120312 16:20:45.812" level="TRACE">Return: None</msg>
-<status status="PASS" starttime="20120312 16:20:38.134" endtime="20120312 16:20:45.811"/>
+<msg timestamp="20120313 11:54:06.218" level="TRACE">Arguments: [  ]</msg>
+<msg timestamp="20120313 11:54:13.038" level="TRACE">Return: None</msg>
+<status status="PASS" starttime="20120313 11:54:06.217" endtime="20120313 11:54:13.037"/>
 </kw>
 <tags>
 <tag>final</tag>
 </tags>
-<status status="PASS" starttime="20120312 16:20:28.993" endtime="20120312 16:20:45.813" critical="yes"/>
+<status status="PASS" starttime="20120313 11:53:57.391" endtime="20120313 11:54:13.040" critical="yes"/>
 </test>
-<status status="PASS" starttime="20120312 16:20:28.112" endtime="20120312 16:20:45.816"/>
+<status status="PASS" starttime="20120313 11:53:56.544" endtime="20120313 11:54:13.043"/>
 </suite>
-<status status="PASS" starttime="20120312 16:20:27.790" endtime="20120312 16:20:45.820"/>
+<status status="PASS" starttime="20120313 11:53:56.261" endtime="20120313 11:54:13.046"/>
 </suite>
 <statistics>
 <total>

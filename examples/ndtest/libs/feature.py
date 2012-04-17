@@ -1,4 +1,6 @@
 import nativedriver, time
+import seemonkey
+import java.util.concurrent.TimeUnit as TimeUnit
 
 nd = nativedriver.AndroidNativeDriverBuilder().withDefaultServer().build();
 
@@ -8,8 +10,9 @@ def the_app_is_started():
 def I_click(text):
     t = text.lower()
     if t == "the log in button":
-        nd.getKeyboard().sendKeys([nativedriver.AndroidKeys.DPAD_DOWN, nativedriver.AndroidKeys.ENTER])
-        #nativedriver.clickId(nd, "login_widget_login_button_email")
+        seemonkey.press('dpad_down')
+        seemonkey.press('dpad_down')
+        #nd.getKeyboard().sendKeys([nativedriver.AndroidKeys.DPAD_DOWN, nativedriver.AndroidKeys.ENTER])
     elif t == "agree":
         nativedriver.clickId(nd, "agree_to_terms_btn")
     elif t == "login":
@@ -22,6 +25,7 @@ def I_press(key):
         nd.navigate().back()
 
 def the_password_tab_is_selected():
+    
     nativedriver.clickId(nd, "loginPhoneLeftTab")
     
 def I_enter_the_email_address(emailAddress):
