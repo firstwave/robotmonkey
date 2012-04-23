@@ -1,1 +1,1 @@
-Documentation can be found at the [RobotMonkey wiki](https://github.com/RobotMonkey/robotmonkey).
+Documentation can be found on the [project wiki](https://github.com/RobotMonkey/robotmonkey/wiki).
