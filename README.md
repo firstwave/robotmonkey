@@ -1,1 +1,1 @@
-TODO
+Documentation can be found at the [RobotMonkey wiki](https://github.com/RobotMonkey/robotmonkey).
