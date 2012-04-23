@@ -1,0 +1,140 @@
+*** Settings ***
+Resource  common.txt
+Library  login
+Library  introduction
+
+*** Keywords ***
+Setup
+    The device is ready
+    The app data is cleared
+    The app is started
+    I accept the terms of service
+    I click  login
+    Set server  stage2mobile09
+
+Given that I have not logged in to a previous version of the app
+    The device is ready
+    The app data is cleared
+    The app is stopped
+
+Given that I have logged in to this version of the app
+    Setup
+    Given the login screen is displayed
+        And the password tab is selected   
+    When I enter the email address  op-us-p10@paypal.com
+        And I enter the password  11111111
+        And I click the login button
+    Then the account screen should be displayed
+    The app is stopped
+
+Given that I have logged in to a previous version of the app with a password
+    Setup
+    Given the login screen is displayed
+        And the password tab is selected   
+    When I enter the email address  op-us-p10@paypal.com
+        And I enter the password  11111111
+        And I click the login button
+    Then the account screen should be displayed
+    
+    # logout and clear the accepted license (simulate app upgrade)
+    I press back
+    I click continue
+    Clear accepted license
+    The app is stopped
+
+Given that I have logged in to a previous version of the app with a PIN
+    Setup
+    Given the login screen is displayed
+        And the PIN tab is selected
+    When I enter the mobile number  7148266247
+	And I enter the PIN  1235
+        And I click the login button
+    Then the account screen should be displayed
+    
+    # logout and clear the accepted license (simulate app upgrade)
+    I press  back
+    I click continue
+    Clear accepted license
+    The app is stopped
+    
+*** Test Cases ***
+Scenario 1
+    [Tags]  indev
+    [Documentation]  Intro screen: first time user
+    
+    Given that I have not logged in to a previous version of the app
+    When the app is started
+    Then the intro screen should be displayed
+        and there should be a sign up button displayed
+        and there should be a login button displayed
+        and I can move between four intro slides by swiping right/left
+    When I click the sign up button
+    Then the sign up screen should be displayed
+    When I press back
+    Then the intro screen should be displayed
+    When I click the Log In button
+    Then the login screen should be displayed
+
+Scenario 2
+    [Tags]  indev
+    [Documentation]  Intro screen: app upgrade/password
+
+    Given that I have logged in to a previous version of the app with a password
+    When the app is started
+    Then the intro screen should be displayed
+        and there should not be a sign up button displayed
+        and there should be a login button displayed
+        and I can move between two intro slides by swiping right/left
+        
+    When I click the Log In button
+    Then the login screen should be displayed
+        And the password tab should be selected by default
+    
+    When the previous log in method was phone/PIN 
+    Then Phone/PIN screen will be displayed
+        And the phone number I last logged in with will be displayed
+    
+    
+    When the previous log in method was email/password
+    Then the Email/Password screen will be displayed
+        And the email address I last logged in with will be displayed
+
+Scenario 3
+    [Tags]  indev
+    [Documentation]  Intro screen: app upgrade/PIN
+
+    Given that I have logged in to a previous version of the app with a PIN
+    When the app is started
+    Then the intro screen should be displayed
+        and there should not be a sign up button displayed
+        and there should be a login button displayed
+        and I can move between two intro slides by swiping right/left
+        
+    When I click the Log In button
+    Then the login screen should be displayed
+    
+    When I click the Log In button
+    Then the login screen should be displayed
+        And the password tab should be selected by default
+
+    
+    When the previous log in method was phone/PIN 
+    Then Phone/PIN screen will be displayed
+        And the phone number I last logged in with will be displayed
+    
+    
+    When the previous log in method was email/password
+    Then the Email/Password screen will be displayed
+        And the email address I last logged in with will be displayed
+
+Scenario 4
+    [Tags]  indev
+    [Documentation]  Intro screen: return user
+    
+    Given that I have logged in to this version of the app
+    
+    When the app is started
+    Then the intro screen should not be displayed
+        And the login screen should be displayed
+        
+        
