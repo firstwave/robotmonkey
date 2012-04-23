@@ -94,6 +94,7 @@ def main():
         pythonPath  = "%s:%s" % (pythonPath, d)
 
     # add test library PATH:
+    # TODO: make the library path smarter in the event that the default suite has been overridden
     for d in args.testLibs:
         pythonPath = "%s:%s" % (pythonPath, d)
 
