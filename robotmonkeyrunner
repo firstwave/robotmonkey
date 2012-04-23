@@ -138,9 +138,9 @@ def main():
     # add the test suite path(s) as args to rfw
     procCall += args.test_suite
 
-    printIter(procCall)
+    #printIter(procCall)
 
-    #subprocess.call(procCall) # execute the proc call
+    subprocess.call(procCall) # execute the proc call
 
 def stripSlash(path):
     '''
