@@ -98,6 +98,10 @@ def main():
         # the default lib path is every data path + /libs
         for d in args.test_suite:
             pythonPath = "%s:%s/libs" % (pythonPath, d)
+    else:
+        # otherwise transcribe them verbatim
+        for d in args.testLibs:
+            pythonPath = "%s:%s" % (pythonPath, d)
 
     # construct the process call in a list object
     procCall = ["java", "-cp", javaClasspath]
