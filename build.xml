@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="SeeMonkey">
+    <property name="version" value="2.0"/>
+    <property environment="env"/>
+    <property file="build.properties" />
+
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.6"/>
+    <property name="source" value="1.6"/>
+
+    <path id="sikuli.libs">
+        <fileset file="${sikuli.app.dir}/Contents/Resources/Java/sikuli-script.jar"/>
+        <fileset dir="${sikuli.app.dir}/Contents/Frameworks">
+            <include name="**/*"/>
+        </fileset>
+    </path>
+    
+    <path id="build.classpath">
+        <pathelement location="${sikuli.app.dir}/Contents/Resources/Java/sikuli-script.jar"/>
+        <pathelement location="${android.sdk.dir}/tools/lib/chimpchat.jar"/>
+        <pathelement location="${android.sdk.dir}/tools/lib/monkeyrunner.jar"/>
+        <pathelement location="${android.sdk.dir}/tools/lib/guavalib.jar"/>
+        <pathelement location="${android.sdk.dir}/tools/lib/ddmlib.jar"/>
+        <pathelement location="${android.sdk.dir}/tools/lib/hierarchyviewer.jar"/>
+        <pathelement location="${android.sdk.dir}/tools/lib/hierarchyviewer2.jar"/>
+        <pathelement location="${android.sdk.dir}/tools/lib/x86/swt.jar"/>
+    </path>
+
+    <target name="clean">
+        <delete dir="bin" verbose="true"/>
+        <delete verbose="true">
+            <fileset dir="libs">
+                <exclude name="**/python/*"/>
+                <exclude name="**/python/*/"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    
+    <target depends="init" name="build">
+        <echo message="${ant.project.name}: ${ant.file} as ${user.name}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}" includeantruntime="false">
+            <classpath refid="build.classpath"/>
+            <src path="src"/>
+        </javac>
+        <jar destfile="${basedir}/bin/seemonkey.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Build-Version" value="${version}"/>
+            </manifest>
+            <fileset dir="${basedir}/bin" excludes="seemonkey.jar" />
+        </jar>
+    </target>
+
+    <target depends="clean,build" name="package">
+        <copy includeemptydirs="false" todir="libs">
+            <path refid="sikuli.libs"/>
+        </copy>
+        <copy file="bin/seemonkey.jar" tofile="libs/seemonkey.jar"/>
+    </target>
+
+</project>
