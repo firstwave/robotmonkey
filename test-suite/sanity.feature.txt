@@ -1,0 +1,20 @@
+*** Settings ***
+Library  sanity
+
+*** Test Cases ***
+Scenario 1
+    [Tags]  sample
+    [Documentation]  sanity check
+
+    Given some preconditions
+    When I do something
+    Then I should see the desired response
+
+
+Scenario 2
+    [Tags]  sample  warn
+    [Documentation]  Sanity Test: negative case
+
+    Given some preconditions
+    When I do something wrong
+    Then I should see the desired response

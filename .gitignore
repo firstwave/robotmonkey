@@ -2,3 +2,4 @@
 .settings
 results/*
 build.properties
+*$py.class
