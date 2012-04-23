@@ -17,14 +17,7 @@ def getDevice():
 def shutdown():
     global _seemonkey
     print("TODO:seemonkey.shutdown")
-    
-def deco(fn):
-    def wrapped():
-        print("pre deco")
-        fn()
-        print("post deco")
-    return wrapped
-    
+
 class SeeMonkeyDevice(com.criticalpath.seemonkey.SeeMonkeyDevice):
     def __init__(self, device):
         com.criticalpath.seemonkey.SeeMonkeyDevice.__init__(self, device)
