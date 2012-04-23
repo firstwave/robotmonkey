@@ -46,10 +46,11 @@ def main():
                         help='use this to explicitly declare remaining positional arguments as test suites. useful when passing multiple positional arguments')
     parser.add_argument("test_suite", nargs='*', default = [DEFAULT_RFW_SUITE],
                         help="path or paths pointing to robotframework test data")
-    
-    args = parser.parse_args()
 
-    print(args)
+    parser.add_argument("-d", action='store_true', dest="debug",
+                        help="enable debug output")
+
+    args = parser.parse_args()
 
     os.chdir(os.path.dirname(os.path.abspath(__file__))) # cd into robotmonkey root
 
@@ -85,23 +86,24 @@ def main():
               'x86/swt.jar']:
         javaClasspath = "%s:%s/tools/lib/%s" % (javaClasspath, androidHome, j)
 
-    # configure the python path, including rfw libraries
-    pythonPath = ''
+    # configure the jython path, including rfw libraries
+    jythonPath = ''
     for d in [RFW_JAR + '/Lib',
               'libs/sikuli-script.jar/Lib',
               'libs/seemonkey.jar/python',
               'libs/python']:
-        pythonPath  = "%s:%s" % (pythonPath, d)
+        jythonPath  = "%s:%s" % (jythonPath, d)
 
-    # add test library PATH:
+    # construct a list of PYTHONPATHs:
+    pythonPath = []
     if args.testLibs is None:
         # the default lib path is every data path + /libs
         for d in args.test_suite:
-            pythonPath = "%s:%s/libs" % (pythonPath, d)
+            pythonPath.append("%s/libs" % stripSlash(d))
     else:
         # otherwise transcribe them verbatim
         for d in args.testLibs:
-            pythonPath = "%s:%s" % (pythonPath, d)
+            pythonPath.append("%s" % stripSlash(d))
 
     # construct the process call in a list object
     procCall = ["java", "-cp", javaClasspath]
@@ -114,13 +116,18 @@ def main():
         for p in args.props:
             procCall.append("-Dseemonkey.%s" % p)
 
-    # set the python path
-    procCall.append("-Dpython.path=%s" % pythonPath)
+    ## set the jython path
+    procCall.append("-Dpython.path=%s" % jythonPath)
 
     # set the android sdk path so that SeeMonkey can see it
     procCall.append("-Dandroid.sdk.dir=%s" % androidHome)
     
     procCall.append("org.robotframework.RobotFramework")
+
+    # set python path:
+    for d in pythonPath:
+        procCall.append("--pythonpath=%s/" % d)
+        procCall.append("--pythonpath=%s/*.sikuli/" % d)
 
     # append rfw args:
     procCall.append("--loglevel=%s" % args.loglevel)
@@ -138,7 +145,8 @@ def main():
     # add the test suite path(s) as args to rfw
     procCall += args.test_suite
 
-    #printIter(procCall)
+    if args.debug:
+        printIter(procCall)
 
     subprocess.call(procCall) # execute the proc call
 
