@@ -39,7 +39,7 @@ def main():
                     help="Mark a tag non-critical", metavar = "TAG")
 
 
-    parser.add_argument("--libs", dest="testLibs", nargs='*', default = [DEFAULT_RFW_SUITE + "/libs"],
+    parser.add_argument("--libs", dest="testLibs", nargs='*', default = None,
                         help="Specifies a PATH-style directory list containing RobotFramework step libraries", metavar = "DIR")
 
     parser.add_argument("--suite", action='store_true',
@@ -94,9 +94,10 @@ def main():
         pythonPath  = "%s:%s" % (pythonPath, d)
 
     # add test library PATH:
-    # TODO: make the library path smarter in the event that the default suite has been overridden
-    for d in args.testLibs:
-        pythonPath = "%s:%s" % (pythonPath, d)
+    if args.testLibs is None:
+        # the default lib path is every data path + /libs
+        for d in args.test_suite:
+            pythonPath = "%s:%s/libs" % (pythonPath, d)
 
     # construct the process call in a list object
     procCall = ["java", "-cp", javaClasspath]
