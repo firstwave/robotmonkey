@@ -18,7 +18,8 @@ def main():
     
     parser.add_argument("--android-sdk", dest="androidSdk", default=None,
                         help="Sets path to local Android SDK. Default is to use the value of the environment variable $ANDROID_SDK", metavar = "DIR")
-    parser.add_argument("--robotmonkey-home", dest="robotmonkeyHome", default=os.path.dirname(__file__),
+
+    parser.add_argument("--robotmonkey-home", dest="robotmonkeyHome", default=os.path.dirname(os.path.abspath(__file__)),
                         help="Manually sets the path to the root of the RobotMonkey package.", metavar="DIR")
     
     parser.add_argument("--set-property", action='append', dest='props',
