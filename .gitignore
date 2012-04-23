@@ -3,3 +3,7 @@
 results/*
 build.properties
 *$py.class
+.classpath
+.project
+.pydevproject
+.settings
