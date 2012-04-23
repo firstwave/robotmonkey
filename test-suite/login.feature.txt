@@ -1,0 +1,23 @@
+*** Test Cases ***
+Scenario 1
+    [Tags]  login
+    [Documentation]  Password login: positive case
+    
+    Given the login screen is displayed
+        And the password tab is selected   
+    When I enter the email address  op-us-p10@paypal.com
+        And I enter the password  11111111
+        And I click the login button
+    Then the account screen should be displayed
+
+
+Scenario 2
+    [Tags]  login  warn
+    [Documentation]  Password login: negative case
+
+    Given the login screen is displayed
+        And the password tab is selected
+    When I enter the email address  op-us-p12@paypal.com
+        And I enter the password  bad-password
+        And I click the login button
+    Then an error dialog should be displayed
