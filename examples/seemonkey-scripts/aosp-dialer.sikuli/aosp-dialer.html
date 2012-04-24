@@ -1,0 +1,123 @@
+
+<html>
+   <head>
+      <style type="text/css">
+         .sikuli-code {
+            font-size: 20px;
+            font-family: "Osaka-mono", Monospace;
+            line-height: 1.5em;
+            display:table-cell;
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap !important;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            width: 99%;   /* remove horizontal scroll-bar when viewing in IE7 */
+         }
+         .sikuli-code img {
+            vertical-align: middle;
+            margin: 2px;
+            border: 1px solid #ccc;
+            padding: 2px;
+            -moz-border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-box-shadow: 1px 1px 1px gray;
+            -webkit-box-shadow: 1px 1px 2px gray;
+         }
+         .kw {
+            color: blue;
+         }
+         .skw {
+            color: rgb(63, 127, 127);
+         }
+
+         .str {
+            color: rgb(128, 0, 0);
+         }
+
+         .dig {
+            color: rgb(128, 64, 0);
+         }
+
+         .cmt {
+            color: rgb(200, 0, 200);
+         }
+
+         h2 {
+            display: inline;
+            font-weight: normal;
+         }  
+         
+         .info {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
+            margin-bottom: 20px;
+            display: none;
+         }
+
+         a {
+            color: #9D2900;
+         }
+
+         body {
+            font-family: "Trebuchet MS", Arial, Sans-Serif;
+         }
+
+      </style>
+   </head>
+<body>
+<div class="info">
+<h2>aosp-dialer.sikuli</h2> <a href="aosp-dialer.zip">(Download this script)</a>
+</div>
+<pre class="sikuli-code">
+<span class="cmt"># This script was written against a Gingerbread (2.3.7) emulator
+</span><span class="cmt"># to run this script against a physical device, ensure that you have
+</span><span class="cmt"># connected an mdpi, AOSP-based device, such as the Nexus One or a Gingerbread powered Nexus S
+</span>
+<span class="kw">from</span> sikuli.Sikuli <span class="kw">import</span> *
+<span class="kw">import</span> seemonkey
+
+device = seemonkey.getDevice()
+
+device.wake()
+
+
+<span class="cmt"># define a dictionary of UI resources
+</span>
+dialerKeys = {<span class="str">'1'</span>:<img src="key-1.png" />, <span class="str">'2'</span>:<img src="key-2.png" />, <span class="str">'3'</span>:<img src="key-3.png" />,
+        <span class="str">'4'</span>:<img src="key-4.png" />, <span class="str">'5'</span>:<img src="key-5.png" />, <span class="str">'6'</span>:<img src="key-6.png" />,
+        <span class="str">'7'</span>:<img src="key-7.png" />, <span class="str">'8'</span>:<img src="key-8.png" />, <span class="str">'9'</span>:<img src="key-9.png" />,
+         <span class="str">'0'</span>:<img src="key-0.png" />, <span class="str">'send'</span>:<img src="key-send.png" />, <span class="str">'end'</span>:<img src="key-end.png" />
+        }
+
+
+<span class="cmt"># Unlock the device if the lockscreen is visible
+</span><span class="kw">if</span> device.exists(<img src="unlock-icon.png" />):
+    device.<span class="skw">dragDrop</span>(<img src="unlock-icon.png" />,Pattern(<img src="unlock-icon.png" />).targetOffset(<span class="dig">321</span>,<span class="dig">0</span>))
+
+
+<span class="cmt"># go to the home screen
+</span>device.press(<span class="str">'home'</span>)
+
+<span class="cmt"># launch the dialer
+</span>device.<span class="skw">click</span>(<img src="dialer-app-icon.png" />)
+
+device.<span class="skw">sleep</span>(<span class="dig">2</span>) <span class="cmt"># wait for the ui to settle down again</span>
+
+<span class="cmt"># dial and send
+</span><span class="kw">for</span> digit <span class="kw">in</span> <span class="str">'5035551236'</span>:
+    device.<span class="skw">click</span>(dialerKeys[digit])
+
+device.<span class="skw">click</span>(dialerKeys[<span class="str">'send'</span>])
+
+<span class="cmt"># waitfo r the end call button to appear, then click it
+</span>device.<span class="skw">wait</span>(dialerKeys[<span class="str">'end'</span>]) <span class="cmt"># will throw an exception if not found</span>
+device.<span class="skw">click</span>(dialerKeys[<span class="str">'end'</span>])
+
+device.press(<span class="str">'back'</span>)
+
+<span class="cmt"># due to a bug in the Sikuli interpereter, you must explicitly quit a script with the following command:
+</span>exit(<span class="dig">0</span>)
+</pre>
+</body>
+</html>
